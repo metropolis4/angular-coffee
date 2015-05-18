@@ -1,0 +1,15 @@
+.container
+  h2 Add new guitar
+  form(ng-submit="addNewGuitar()" novalidate)
+    .form-group
+      label Brand
+      input.form-control(type='text', ng-model="newGuitar.Brand")
+    .form-group
+      label Model
+      input.form-control(type='text', ng-model="newGuitar.Model")
+    .form-group
+      label Type
+      input.form-control(type='text', ng-model="newGuitar.Type")
+    .form-group
+      label Submit
+      input.btn.form-control(type='submit')

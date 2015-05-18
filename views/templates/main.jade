@@ -1,0 +1,14 @@
+.container(ng-controller="MainController")
+  h2 {{ title }}
+  .container
+    table.table.table-hover
+      tr
+        th Brand
+        th Model 
+        th Type 
+      tr(ng-repeat='guitar in guitars' ng-click="editGuitar()")
+        td {{ guitar.Brand }}
+        td {{ guitar.Model }}
+        td {{ guitar.Type }}
+
+  new-entry
