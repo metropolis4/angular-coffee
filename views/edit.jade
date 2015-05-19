@@ -1,2 +1,22 @@
 .modal-header
-  h1 {{ toEdit }}
+  h1 Edit {{ guitarToEdit.Name }}
+  form(ng-submit="saveChanges()" novalidate)
+    .form-group
+      label Brand
+      input.form-control(type='text', 
+        ng-model="editedGuitar.Brand",
+        ng-value="editedGuitar.Brand")
+    .form-group
+      label Model
+      input.form-control(type='text', 
+        ng-model="editedGuitar.Model",
+        ng-value="editedGuitar.Model")
+    .form-group
+      label Name
+      input.form-control(type='text', 
+        ng-model="editedGuitar.Name",
+        ng-value="editedGuitar.Name")
+    .form-group
+      label Submit
+      input.btn.form-control(type='submit')
+  button.btn.btn-warning(ng-click="cancel()") Close...

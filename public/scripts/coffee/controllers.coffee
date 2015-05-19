@@ -16,13 +16,14 @@ angular.module 'app'
         $scope.newGuitar = {}
 
       $scope.editGuitar = ->
+        toEdit = this.guitar
         modalInstance = $modal
           .open
             templateUrl: '/edit'
             controller: 'EditGuitarController'
             resolve:
               guitarToEdit: ->
-                this.guitar
+                toEdit
 
 ]
 
@@ -36,6 +37,11 @@ angular.module 'app'
 
       $scope.cancel = ->
         $modalInstance.dismiss 'cancel'
+      $scope.guitarToEdit = guitarToEdit
+      $scope.editedGuitar = guitarToEdit
+      $scope.saveChanges = ->
+        Guitars.saveChanges $scope.guitarToEdit, $scope.editedGuitar
+        $modalInstance.dismiss 'completed'
 
-      $scope.toEdit = guitarToEdit
+
   ]

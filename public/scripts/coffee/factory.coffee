@@ -6,6 +6,10 @@ angular.module 'app'
       guitars.push guitar
     getGuitars: ->
       guitars
-    getOneGuitar: (guitar) ->
-      guitars.filter (val) ->
-        val.name is guitar.name
+    saveChanges: (original, edited) ->
+      guitarToEdit = guitars.filter (val) ->
+        val is original
+      for key in guitarToEdit
+        guitarToEdit = key
+      index = guitars.indexOf(guitarToEdit)
+      guitars[index] = edited

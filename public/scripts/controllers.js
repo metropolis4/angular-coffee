@@ -10,13 +10,14 @@
         return $scope.newGuitar = {};
       };
       return $scope.editGuitar = function() {
-        var modalInstance;
+        var modalInstance, toEdit;
+        toEdit = this.guitar;
         return modalInstance = $modal.open({
           templateUrl: '/edit',
           controller: 'EditGuitarController',
           resolve: {
             guitarToEdit: function() {
-              return this.guitar;
+              return toEdit;
             }
           }
         });
@@ -27,7 +28,12 @@
       $scope.cancel = function() {
         return $modalInstance.dismiss('cancel');
       };
-      return $scope.toEdit = guitarToEdit;
+      $scope.guitarToEdit = guitarToEdit;
+      $scope.editedGuitar = guitarToEdit;
+      return $scope.saveChanges = function() {
+        Guitars.saveChanges($scope.guitarToEdit, $scope.editedGuitar);
+        return $modalInstance.dismiss('completed');
+      };
     }
   ]);
 

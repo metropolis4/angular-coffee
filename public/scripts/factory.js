@@ -10,10 +10,17 @@
       getGuitars: function() {
         return guitars;
       },
-      getOneGuitar: function(guitar) {
-        return guitars.filter(function(val) {
-          return val.name === guitar.name;
+      saveChanges: function(original, edited) {
+        var guitarToEdit, i, index, key, len;
+        guitarToEdit = guitars.filter(function(val) {
+          return val === original;
         });
+        for (i = 0, len = guitarToEdit.length; i < len; i++) {
+          key = guitarToEdit[i];
+          guitarToEdit = key;
+        }
+        index = guitars.indexOf(guitarToEdit);
+        return guitars[index] = edited;
       }
     };
   });
