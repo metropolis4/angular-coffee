@@ -11,5 +11,5 @@ angular.module 'app'
         val is original
       for key in guitarToEdit
         guitarToEdit = key
-      index = guitars.indexOf(guitarToEdit)
+      index = guitars.indexOf guitarToEdit
       guitars[index] = edited

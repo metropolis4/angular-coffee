@@ -37,8 +37,10 @@ angular.module 'app'
 
       $scope.cancel = ->
         $modalInstance.dismiss 'cancel'
+
       $scope.guitarToEdit = guitarToEdit
       $scope.editedGuitar = guitarToEdit
+      
       $scope.saveChanges = ->
         Guitars.saveChanges $scope.guitarToEdit, $scope.editedGuitar
         $modalInstance.dismiss 'completed'
